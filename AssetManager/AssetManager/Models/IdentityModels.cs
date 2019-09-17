@@ -29,5 +29,9 @@ namespace AssetManager.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Product> Product { get; set; }
+        public DbSet<ProductType> ProductType { get; set; }
+        public DbSet<Maintenance> Maintenance { get; set; }
     }
 }

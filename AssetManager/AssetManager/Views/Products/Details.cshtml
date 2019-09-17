@@ -1,0 +1,65 @@
+﻿@model AssetManager.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType.TypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductType.TypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductPurchaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductPurchaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductDeliveryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductDeliveryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductExpairyDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductExpairyDate)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.ProductImageUrl)*@
+            <img src="@Url.Content(Model.ProductImageUrl)" alt="" style="width:35%;height:15%;" />
+        </dt>
+
+        
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
