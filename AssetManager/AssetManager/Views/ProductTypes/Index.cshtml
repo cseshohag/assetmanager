@@ -1,0 +1,36 @@
+﻿@model IEnumerable<AssetManager.Models.ProductType>
+
+@{
+    ViewBag.Title = "Product Types";
+}
+
+<h2>@ViewBag.Title</h2><hr />
+
+<p>
+    
+    <a href='@Url.Action("Create", "ProductTypes")' class="btn btn-primary">Add Product Type</a>
+</p>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductTypeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductTypeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductTypeID })
+        </td>
+    </tr>
+}
+
+</table>

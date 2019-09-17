@@ -1,0 +1,66 @@
+﻿@model IEnumerable<AssetManager.Models.Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>Products </h2>
+<hr />
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    <a href='@Url.Action("Create", "Products")' class="btn btn-primary">Add Product</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductType.TypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductPurchaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductDeliveryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductExpairyDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductImageUrl)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductType.TypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductPurchaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductDeliveryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductExpairyDate)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.ProductImageUrl)*@
+            <img src="@Url.Content(item.ProductImageUrl)" alt="" style="width:25%;height:10%;"/>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
+        </td>
+    </tr>
+}
+
+</table>
